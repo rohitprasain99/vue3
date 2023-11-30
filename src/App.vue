@@ -1,26 +1,21 @@
-<script lang="ts">
+<script setup lang="ts">
 // cannot use primitive values inside reactive
 // ref ma .value use garna parxa , reactive ma pardaina
 // duitaima return garna paryo
 // template ma chai .value use garna pardaina, script vitra matra ho
 
 // better is ref
-
 import { ref } from 'vue'
-export default {
-  setup() {
-    const count = ref(20)
-    return { count }
-  }
-}
+
+const count = ref(22)
 </script>
 
 <template>
   <main>
     <h2>Counter App</h2>
 
-    <div>count : {{ count }}</div>
-    <div>
+    <div class="mt-2">count : {{ count }}</div>
+    <div class="mt-2">
       <button @click="count++" class="inc-btn">increase</button>
       <button @click="count--" class="dec-btn">decrease</button>
     </div>
@@ -69,5 +64,9 @@ button {
     transition: 0.5s ease-out;
     color: white;
   }
+}
+
+.mt-2 {
+  margin-top: 1.5rem;
 }
 </style>
