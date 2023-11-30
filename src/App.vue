@@ -5,16 +5,29 @@
 // template ma chai .value use garna pardaina, script vitra matra ho
 
 // better is ref
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
-const count = ref(22)
+const count = ref<number>(22)
+const num = ref<number>(0)
+
+const squared = computed<Object>(() => new Number(Math.sqrt(count.value)).toPrecision(3))
+const doubled = computed<number>(() => num.value * 2)
 </script>
 
 <template>
   <main>
-    <h2>Counter App</h2>
+    <input type="number" v-model="num" />
+    <div>
+      double :
+      <span>
+        {{ doubled }}
+      </span>
+    </div>
+    <h2 class="mt-2">Counter App</h2>
 
     <div class="mt-2">count : {{ count }}</div>
+    <div class="mt-2">square root : {{ squared }}</div>
+
     <div class="mt-2">
       <button @click="count++" class="inc-btn">increase</button>
       <button @click="count--" class="dec-btn">decrease</button>
